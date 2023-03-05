@@ -118,3 +118,37 @@ function sum(x,y, callback){
 function displayDOM(output){
     console.log(output);
 }
+
+// function expresion
+const greeting = function(){
+    console.log("Helloo!!");
+}
+
+greeting();
+
+// arrow func
+const grettings= (username) => console.log(`Hello ${username}`);
+grettings("bro");
+
+const percentage = (x,y) => x / y * 100;
+console.log(`${percentage(x,y)} %`);
+
+
+// nested functions
+ function fun(){
+    displayDOM();
+
+ }
+
+ // collections -> Map
+  const store = new Map(["shirt, 20"], ["jeans", 30], ["socket", 40]);
+  store.get("shirt");
+  store.set("hoddie", 40);
+  store.delete("jeans");
+
+  console.log(store.size);
+  store.forEach((value, key) => console.log(`${key} $${value}`));
+
+
+  // OOPS concepts
+  

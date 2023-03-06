@@ -1,3 +1,6 @@
+import {PI, getArea} from "./math.js";
+// import * as mathUtil from "./math.js";
+// console.log(mathUtil.PI);
 // print on the console
 console.log("login on console");
 let name1 ="hello";
@@ -303,7 +306,55 @@ finally{
 }
 
 // setTimeout() ->   number of milli seconds the 
-            //function will execute
+            //function will execute asyncronous
 
 let timer= setTimeout(firstMsg);
 clearTimeout(timer);
+
+// setInterval()
+// setInterval(function, 1000)
+
+// track time of operation
+console.time("start time");
+console.timeEnd("end time");
+
+
+// promise
+/**
+ * asyncronous method return value
+ */
+
+const promise = new Promise((resolve, reject) => {
+        let fileLoad = true;
+        if(fileLoad){
+            resolve("file loaded");
+        }
+        else{
+            reject("file not loaded");
+        }
+});
+
+promise.then(value => console.log(value))
+        .catch(error => console.log(error));
+
+const promise1 = new Promise(resolve=>{setTimeout(resolve,1000);});
+promise.then(() => console.log("waiting 5 seconds"));
+
+
+// async
+async function loadFile(){
+    let fileLoad = true;
+    if(fileLoad){
+        resolve("file loaded");
+    }
+    else{
+        reject("file not loaded");
+    }
+}
+
+loadFile().then(() => console.log("waiting 5 seconds")).catch(error => console.log(error));
+
+
+// modules
+console.log(PI);
+console.log(getArea(5));

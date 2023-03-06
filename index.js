@@ -113,7 +113,7 @@ function sum(...numbers){
 sum(2,3, displayDOM);
 function sum(x,y, callback){
     let result = x+y;
-    callback(result)
+    displayDOM(result)
 }
 function displayDOM(output){
     console.log(output);
@@ -129,9 +129,10 @@ greeting();
 // arrow func
 const grettings= (username) => console.log(`Hello ${username}`);
 grettings("bro");
-
-const percentage = (x,y) => x / y * 100;
-console.log(`${percentage(x,y)} %`);
+let x1=10;
+let y=20
+const percentage = (x1,y) => x1/ y * 100;
+console.log(`${percentage(x1,y)} %`);
 
 
 // nested functions
@@ -141,14 +142,168 @@ console.log(`${percentage(x,y)} %`);
  }
 
  // collections -> Map
-  const store = new Map(["shirt, 20"], ["jeans", 30], ["socket", 40]);
-  store.get("shirt");
+  const store = new Map(["shirt", 20], ["jeans", 30], ["socket", 40]);
+  /*store.get("shirt");
   store.set("hoddie", 40);
   store.delete("jeans");
 
-  console.log(store.size);
-  store.forEach((value, key) => console.log(`${key} $${value}`));
+  console.log(store.size); */
+  //store.forEach((value, key) => console.log(`${key} $${value}`));
 
 
   // OOPS concepts
-  
+//object
+const aCar ={ model:"mustang", 
+           color:"red",
+           year:"2023",
+           drive: function(){
+            console.log("you drive the car");
+           },
+           brake: function(){
+            console.log("you stepon the brake");
+           }
+
+        
+        };
+console.log(aCar.color);
+aCar.brake();
+
+// this keyword
+const aCar1 ={ model:"mustang", 
+           color:"red",
+           year:"2023",
+           drive: function(){
+            console.log(`you drive the ${this.model}`);
+           },
+           brake: function(){
+            console.log("you stepon the brake");
+           }
+
+        
+        };
+
+// class
+class Player{
+    score =0;
+    paue(){
+        console.log(`Inside Function ${this.score}`);
+    }
+
+}
+
+const player1 = new Player();
+player1.score += 1;
+player1.paue();
+
+
+// constructor
+class Player1{
+   static scoreRage =0;
+   static startPlayer(){
+    console.log("start the player");
+   }
+
+    constructor(score){
+        this.score = score;
+        Player.scoreRage += 1;
+        Player.startPlayer();
+    }
+    paue(){
+        console.log(`Inside Function ${this.score}`);
+    }
+
+}
+
+const player2 = new Player1(2);
+player2.score += 1;
+player2.paue();
+
+
+// Inheritance
+class Animal{
+    alive = "true";
+    run(){
+        console.log("running...")
+    }
+}
+class Rabbit extends Animal{
+    alive = true;
+    name ="Rabbit";
+    eat(){
+        console.log("eatting... Rabbit")
+    }
+}
+
+class Hawk extends Animal{ 
+    alive = true;
+    name ="Hawk";
+    eat(){
+        console.log("eatting... Hawk")
+    }
+}
+
+const rabbit = new Rabbit();
+
+console.log(rabbit.alive);
+
+// super
+class Animal1{
+    alive = "true";
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    run(){
+        console.log("running...")
+    }
+}
+class Rabbit1 extends Animal1{
+    
+    name ="Rabbit";
+
+    constructor(name,age,food){
+        super(name,age);
+        this.food =food;
+    }
+    eat(){
+        console.log("eatting... Rabbit")
+    }
+}
+
+//getter setter
+ class Getter{
+
+    constructor(power){
+        this._power = power;
+    }
+    get power(){
+        return this._power;
+        //return `${this._power}hp`;
+    }
+    set power(value){
+        this._power = value;
+    }
+ }
+
+// try... catch
+/**
+ * error -> object with descr. of went something wrong.
+ * throw -> executes a user-defined error
+ */
+try{
+    let num = window.prompt("Enter a number")
+    num = Number(num)
+    if(isNaN(x)) throw "exception occure"
+}
+catch(error){
+    console.log(error);
+}
+finally{
+    console.log("always executed");
+}
+
+// setTimeout() ->   number of milli seconds the 
+            //function will execute
+
+let timer= setTimeout(firstMsg);
+clearTimeout(timer);
